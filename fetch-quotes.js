@@ -5,7 +5,11 @@ const fetchQuotes = async () => {
   const res = await fetch(url);
   const body = await res.json();
 
-  return body[0];
+  return {
+    name: body[0].character,
+    text: body[0].quote,
+    image: body[0].image,
+  };
 };
 
 export default fetchQuotes;
